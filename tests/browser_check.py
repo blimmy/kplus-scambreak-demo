@@ -109,6 +109,15 @@ def main(base):
         require(state(page)['step']=='-1' and state(page)['countdown']=='45' and state(page)['playing']=='false','Reset restores reference and cancels previous clock')
         checks.append('Manual risk/questions/advice route, pause pixel freeze, resume and reset all passed.')
 
+        page.locator('#play').click();page.clock.run_for(120);page.locator('#play').click()
+        early=state(page)
+        t=min(1,int(early['elapsed'])/650)
+        expected_opacity=.48*t*t*(3-2*t)
+        require(abs(float(page.locator('#phone-focus').get_attribute('opacity'))-expected_opacity)<.005,'Pausing inside the entrance fade must not jump its opacity')
+        page.clock.run_for(1000)
+        require(state(page)==early,'Early-fade pause preserves time')
+        page.locator('#reset').click()
+
         page.locator('#continuous').check()
         page.locator('#play').click()
         visited=[]

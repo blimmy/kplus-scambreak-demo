@@ -132,7 +132,7 @@ function drawMotion() {
   if (timeline.step < 0) return;
   const current = timeline.current;
   const elapsed = timeline.elapsed;
-  const fade = timeline.playing && !reducedMotion.matches ? ease(elapsed / 650) : 1;
+  const fade = timeline.instantFocus || reducedMotion.matches ? 1 : ease(elapsed / 650);
   rectangle('phone-focus', PHONES[current.phone], .48 * fade);
   rectangle('highlight',current.box,.92 * fade);
   if (current.secondary) rectangle('highlight-secondary',current.secondary,.85*fade);
