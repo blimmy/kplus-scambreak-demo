@@ -1,0 +1,14 @@
+{
+  "name": "kplus-scambreak-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Slide-faithful, browser-only K PLUS ScamBreak presentation",
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "build": "node tools/build.mjs",
+    "preview": "node tools/serve.mjs dist",
+    "test": "node --test tests/timeline.test.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

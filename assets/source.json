@@ -1,0 +1,77 @@
+{
+  "source": "KPLUS_ScamBreak_Canva_2pages (2).pptx",
+  "source_sha256": "aad8faa15e46fb619e3250e974b5200418f84959b16dcff5c53d44be96d22ebd",
+  "slide_size_emu": [
+    14630400,
+    9753600
+  ],
+  "coordinate_size": [
+    1536,
+    1024
+  ],
+  "image_size": [
+    3072,
+    2048
+  ],
+  "renderer": "Microsoft PowerPoint native PNG export",
+  "fonts": [
+    "Kanit ExtraBold",
+    "Noto Sans Thai Looped",
+    "Noto Sans Thai Looped SemiBold"
+  ],
+  "countdown_box": [
+    1186,
+    482,
+    124,
+    52
+  ],
+  "answer_boxes": [
+    [
+      601,
+      494,
+      156,
+      35
+    ],
+    [
+      601,
+      607,
+      156,
+      35
+    ],
+    [
+      601,
+      720,
+      156,
+      35
+    ]
+  ],
+  "status_boxes": [
+    [
+      600,
+      483,
+      340,
+      37
+    ],
+    [
+      600,
+      523,
+      340,
+      37
+    ],
+    [
+      600,
+      563,
+      340,
+      37
+    ]
+  ],
+  "countdown_seconds": 45,
+  "demo_countdown_duration_ms": 15000,
+  "assets": {
+    "answer-neutral-atlas.png": "97ede39a930c4921af8c30ae72e8c420336c2d407efcfb84fd686211ce1c85e5",
+    "countdown-atlas.png": "7b571bc146cea0bd0a4b009b7a773be41c69c67b76739360fd3f9554cc7e0b07",
+    "scene-1.png": "907a8b2a59371141f62339c769993ea1f11475cebf9eb2600e8d565a22dccf0b",
+    "scene-2.png": "ee55eb7644fcccbaa9428044db4c0237a86fc9f4a4ce6c97fcbed1cd5881a26a",
+    "status-neutral-atlas.png": "ae7ec2af0dbb72a770035f3de31339dedeb61b573e0adc3e608807f6c2c09776"
+  }
+}
