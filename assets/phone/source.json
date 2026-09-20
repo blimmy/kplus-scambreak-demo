@@ -1,0 +1,35 @@
+{
+  "source_sha256": "aad8faa15e46fb619e3250e974b5200418f84959b16dcff5c53d44be96d22ebd",
+  "frame_box": [
+    68,
+    158,
+    440,
+    828
+  ],
+  "screen_box": [
+    94,
+    182,
+    388,
+    778
+  ],
+  "screen_spacing": 480,
+  "phone_coordinate_size": [
+    440,
+    828
+  ],
+  "screen_offset_in_phone": [
+    26,
+    24
+  ],
+  "assets": {
+    "answer-no-atlas.png": "263484463ef6d489c2847cae04aad408429784e988b192cf5cc21f9135b3cf06",
+    "frame.png": "ab8ef68c0f8df772895b23b1bc6dead8d7094a7231c605fbc0f6743426735cae",
+    "question-pending.png": "90c95e3a1e26782fabbc3f19c90536ffff3b8e302a1ea2ca0fbaec676e5775c4",
+    "scene-1-screen-1.png": "12757870aef5bf59b32b1f8f446098b77820673cdf65569d94a77ae0642ed6e8",
+    "scene-1-screen-2.png": "ba12558a44c4fcf02a4b3218f8cf42a7772b4788e5e556fac4f2a9a368dcd62c",
+    "scene-1-screen-3.png": "c49133335b1109fd46978935a2608a7044c9f64bb181bbdbe15848137211f598",
+    "scene-2-screen-1.png": "3c1a4a5de56425fb36cad9e860dc67d0caafa482058280c705245e7cfeb602c0",
+    "scene-2-screen-2.png": "5246b6478fc7ccfb7e80a9fc00b032f61aae4974d2b66748a5ec4339f646a7f4",
+    "scene-2-screen-3.png": "33c9e7eec5dd24104f583661f1fab00e6f75d2dbe8a6a96205fc4bf17abd4897"
+  }
+}

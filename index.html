@@ -6,52 +6,47 @@
   <meta name="description" content="K PLUS ScamBreak — ภาพจำลองแนวคิดเพื่อการนำเสนอ ข้อมูลสมมติ">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="theme-color" content="#102a30">
-  <title>K PLUS ScamBreak · Animated Demo</title>
+  <title>K PLUS ScamBreak · Interactive Phone Demo</title>
   <link rel="icon" href="./assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="./styles.css">
-  <link rel="preload" href="./assets/scene-1.png" as="image">
+  <link rel="preload" href="./assets/phone/frame.png" as="image">
   <link rel="preload" href="./assets/fonts/NotoSansThaiLooped-Regular.ttf" as="font" type="font/ttf" crossorigin>
   <script type="module" src="./src/app.js"></script>
 </head>
 <body>
   <div id="presenter">
-    <main id="viewport" aria-label="พื้นที่สไลด์ ใช้ซูมเพื่อดูรายละเอียดและเลื่อนดูได้">
+    <main id="viewport" aria-label="มือถือจำลอง กดปุ่มบนหน้าจอเพื่อใช้งาน">
       <div id="stage-holder">
-        <section id="slide" role="group" aria-roledescription="สไลด์พร้อมปุ่มสาธิต" aria-label="เบรกก่อนโอน" aria-describedby="slide-description" data-scene="0" data-step="-1">
-          <img id="slide-image" src="./assets/scene-1.png" width="1536" height="1024" alt="เบรกก่อนโอน: ตรวจพบความเสี่ยง เช็กสถานการณ์ และหยุดก่อนตัดสินใจ" draggable="false" fetchpriority="high">
-          <div id="patches" aria-hidden="true"></div>
-          <svg id="motion" viewBox="0 0 1536 1024" aria-hidden="true">
-            <rect id="phone-focus" rx="57" fill="none" stroke="#08aa8f" stroke-width="3" />
-            <rect id="highlight" rx="12" fill="none" stroke="#00a58b" stroke-width="3" />
-            <rect id="highlight-secondary" rx="10" fill="none" stroke="#d99313" stroke-width="2.5" />
-            <circle id="countdown-progress" cx="1248" cy="522" r="62" fill="none" stroke="#08aa8f" stroke-width="5" stroke-linecap="round" transform="rotate(-90 1248 522)" />
-            <circle id="click-ripple" r="0" fill="none" stroke="#00a58b" stroke-width="3" />
-            <g id="demo-cursor"><path d="M0 0 L4 29 L11 22 L17 34 L23 31 L17 19 L27 18 Z" fill="#fff" stroke="#163d43" stroke-width="2" stroke-linejoin="round" /></g>
-          </svg>
-          <div id="hotspots"></div>
-          <p id="slide-description" class="sr-only"></p>
+        <section id="phone" role="group" aria-roledescription="มือถือจำลองที่กดใช้งานได้" aria-label="เบรกก่อนโอน" aria-describedby="phone-description" data-scene="0" data-screen="0">
+          <img id="phone-frame" src="./assets/phone/frame.png" width="440" height="828" alt="กรอบมือถือจากสไลด์ต้นฉบับ" draggable="false" fetchpriority="high">
+          <div id="screen-window">
+            <div id="screen-layers"></div>
+            <svg id="tap-layer" viewBox="0 0 388 778" aria-hidden="true"><circle id="tap-ripple" r="0" fill="none" stroke="#07ab8d" stroke-width="3" /></svg>
+          </div>
+          <p id="phone-description" class="sr-only"></p>
         </section>
       </div>
     </main>
+    <p id="demo-disclaimer">ภาพจำลองแนวคิดเพื่อการนำเสนอ • ข้อมูลสมมติ</p>
 
     <footer id="controls" aria-label="แถบควบคุมการนำเสนอ">
       <div class="progress-track" id="progress" role="progressbar" aria-label="ความคืบหน้าฉาก" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="progress-fill"></div></div>
       <div class="control-row">
         <label class="scene-picker"><span class="sr-only">เลือกฉาก</span><select id="scene-select" aria-label="เลือกฉาก"><option value="0">1 · เบรกก่อนโอน</option><option value="1">2 · หยุดเงินทันเมื่อรู้ตัว</option></select></label>
         <div class="playback-buttons" role="group" aria-label="ควบคุมลำดับ">
-          <button id="back" title="ย้อนขั้น (←)" aria-label="ย้อนขั้น"><span aria-hidden="true">‹</span></button>
-          <button id="play" class="primary" aria-label="เล่น" title="เล่น / หยุดชั่วคราว (Space)"><span id="play-icon" aria-hidden="true">▶</span><span id="play-label">เล่น</span></button>
-          <button id="next" title="ขั้นถัดไป (→)" aria-label="ขั้นถัดไป"><span aria-hidden="true">›</span></button>
-          <button id="reset" title="คืนภาพต้นฉบับและเริ่มใหม่ (R)"><span aria-hidden="true">↺</span><span>เริ่มใหม่</span></button>
+          <button id="back" title="หน้าก่อนหน้า (←)" aria-label="หน้าก่อนหน้า"><span aria-hidden="true">‹</span></button>
+          <button id="play" class="primary" aria-label="เล่นอัตโนมัติ" title="เล่นอัตโนมัติ / หยุด / เล่นต่อ (Space)"><span id="play-icon" aria-hidden="true">▶</span><span id="play-label">เล่นอัตโนมัติ</span></button>
+          <button id="next" title="หน้าถัดไป (→)" aria-label="หน้าถัดไป"><span aria-hidden="true">›</span></button>
+          <button id="reset" title="กลับหน้าแรกของฉาก (R)"><span aria-hidden="true">↺</span><span>เริ่มใหม่</span></button>
         </div>
         <label class="continuous-control" title="เปิด: เล่นทุกขั้นต่อถึงฉาก 2 · ปิด: หยุดเมื่อจบแต่ละขั้น"><input id="continuous" type="checkbox" checked><span>เล่นต่อเนื่อง</span></label>
         <div class="view-buttons">
-          <label><span class="sr-only">ขนาดการแสดงผล</span><select id="zoom" aria-label="ซูมสไลด์"><option value="1">พอดีจอ</option><option value="1.5">ซูม 150%</option><option value="2">ซูม 200%</option><option value="3">ซูม 300%</option><option value="actual">ขนาดจริง</option></select></label>
+          <label><span class="sr-only">ขนาดการแสดงผล</span><select id="zoom" aria-label="ซูมมือถือ"><option value="1">พอดีจอ</option><option value="1.5">ซูม 150%</option><option value="2">ซูม 200%</option><option value="actual">ขนาดจริง</option></select></label>
           <button id="fullscreen" aria-label="เต็มจอ" title="เต็มจอ (F)"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 2H2v5m11-5h5v5M2 13v5h5m11-5v5h-5" fill="none" stroke="currentColor" stroke-width="1.7" /></svg></button>
           <button id="hide-controls" title="ซ่อนแถบควบคุม (H)" aria-label="ซ่อนแถบควบคุม"><svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z M3 3l14 14" fill="none" stroke="currentColor" stroke-width="1.6" /></svg></button>
         </div>
       </div>
-      <div class="caption-row"><span id="step-count">ภาพต้นฉบับ</span><p id="step-caption" role="status" aria-live="polite">กดเล่น หรือกดปุ่มในสไลด์เพื่อเริ่มสาธิต</p><span class="key-hint">Space เล่น/หยุด · ← → เปลี่ยนขั้น · R เริ่มใหม่</span></div>
+      <div class="caption-row"><span id="step-count">หน้าจอ 1 / 3</span><p id="step-caption" role="status" aria-live="polite">กด “ตรวจสอบความเสี่ยง” บนหน้าจอมือถือเพื่อเริ่ม</p><span class="key-hint">กดบนมือถือได้เลย · ← → เปลี่ยนหน้า · R เริ่มใหม่</span></div>
     </footer>
     <div id="restore-bar" hidden><button id="show-controls" aria-label="แสดงแถบควบคุม">แสดงแถบควบคุม <span aria-hidden="true">· H</span></button></div>
   </div>
@@ -63,6 +58,6 @@
     <p class="simulation-note">ไม่มีการโทร ส่งข้อมูล หรือเลือกไฟล์จริง</p>
     <button id="close-dialog" class="primary">กลับสู่การนำเสนอ</button>
   </dialog>
-  <noscript>โปรดเปิด JavaScript เพื่อเล่นอนิเมชั่นและใช้ปุ่มสาธิต ภาพต้นฉบับยังแสดงได้</noscript>
+  <noscript>โปรดเปิด JavaScript เพื่อกดใช้งานมือถือจำลอง</noscript>
 </body>
 </html>

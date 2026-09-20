@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Slide-faithful, browser-only K PLUS ScamBreak presentation",
+  "description": "Source-faithful, single-phone interactive K PLUS ScamBreak demo",
   "scripts": {
     "start": "node tools/serve.mjs",
     "build": "node tools/build.mjs",
     "preview": "node tools/serve.mjs dist",
-    "test": "node --test tests/timeline.test.mjs"
+    "test": "node --test tests/timeline.test.mjs tests/simulator.test.mjs"
   },
   "engines": { "node": ">=20" }
 }
