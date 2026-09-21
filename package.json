@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Source-faithful, single-phone interactive K PLUS ScamBreak demo",
+  "description": "Complete single-phone ScamBreak journey: enter an amount, pause risk, protect the account and follow a case",
   "scripts": {
     "start": "node tools/serve.mjs",
     "build": "node tools/build.mjs",
     "preview": "node tools/serve.mjs dist",
-    "test": "node --test tests/timeline.test.mjs tests/simulator.test.mjs"
+    "test": "node --test tests/timeline.test.mjs tests/simulator.test.mjs tests/journey.test.mjs"
   },
   "engines": { "node": ">=20" }
 }
